@@ -46,13 +46,18 @@ WHERE EXTRACT (MONTH FROM birth_date ) = '11' ;
 * Question: Who is the oldest employee? (Use the analytical function MAX)
 */
 
-SELECT * FROM employees;
+SELECT MAX(AGE(birth_date)) FROM employees;
 
 /*
 * DB: Store
 * Table: orders
 * Question: How many orders were made in January 2004?
+* 1000
 */
 
-SELECT * FROM orders;
+SELECT
+count(orderid)
+FROM
+  orders
+WHERE DATE_TRUNC('month',orderdate) = date '2004-01-01'
 

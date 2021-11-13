@@ -23,6 +23,9 @@ ORDER BY e.emp_no;
 *  Show me all the employees that work in the department development and the from and to date.
 *  Database: Employees
 */
-
-SELECT e.emp_no
+SELECT e.emp_no, de.from_date, de.to_date
 FROM employees as e
+JOIN dept_emp AS de USING(emp_no)
+WHERE de.dept_no = 'd005'
+GROUP BY e.emp_no, de.from_date, de.to_date
+ORDER BY e.emp_no, de.to_date;

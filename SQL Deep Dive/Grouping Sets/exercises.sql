@@ -3,7 +3,7 @@
 *  Database: Employees
 *  Table: Employees
 */
-select dept_no,count(emp_no) as "Total Employee" from employees as e inner join dept_emp as dep using (emp_no)
+select dept_no,count(emp_no) as "Total Employee" from dept_emp
 group by 
     grouping sets (
         (),
